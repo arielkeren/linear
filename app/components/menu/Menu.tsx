@@ -20,7 +20,7 @@ const Menu: React.FC<Props> = ({
   changeThickness,
 }) => {
   return (
-    <div className="h-screen w-screen fixed bg-opacity-50 bg-black z-10 flex justify-center items-center">
+    <div className="h-screen w-screen absolute bg-opacity-50 bg-black z-10 flex justify-center items-center">
       <div className="h-2/3 w-2/3 bg-gray-900 relative flex flex-col items-center gap-2 p-6">
         <button onClick={closeMenu} className="absolute top-2 right-2">
           <FaXmark className="text-red-500 text-2xl" />

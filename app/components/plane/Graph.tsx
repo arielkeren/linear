@@ -184,7 +184,7 @@ const Graph: React.FC<Props> = ({
         height: thickness,
         backgroundColor: color,
         zIndex: deepness,
-        transform: `translate(calc(-128px + ${dragXOffset}px), calc(50vh + ${totalOffset}px + ${dragYOffset}px)) rotate(${radiansToRotate}rad) scaleX(99)`,
+        transform: `translate(calc(-128px + ${dragXOffset}px), calc(50vh + ${totalOffset}px + ${dragYOffset}px)) rotate(${radiansToRotate}rad) scaleX(50)`,
       }}
     ></div>
   );

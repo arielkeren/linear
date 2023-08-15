@@ -7,7 +7,7 @@ interface Props {
 
 const Plane: React.FC<Props> = ({ slots }) => {
   return (
-    <>
+    <div>
       {slots.map(
         (slot, index) =>
           slot.isShown && (
@@ -21,9 +21,9 @@ const Plane: React.FC<Props> = ({ slots }) => {
           )
       )}
 
-      <Graph equation="y=0x+0" color="#111827" thickness={5} deepness={-1} />
-      <Graph equation="y=9999x+0" color="#111827" thickness={5} deepness={-1} />
-    </>
+      <Graph equation="y=0" color="#111827" thickness={5} deepness={-1} />
+      <Graph equation="y=9999x" color="#111827" thickness={5} deepness={-1} />
+    </div>
   );
 };
 

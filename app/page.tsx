@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Panel from "./components/Panel";
-import Plane from "./components/Plane";
+import Panel from "./components/panel/Panel";
+import Plane from "./components/plane/Plane";
 import IGraph from "@/types";
-import Menu from "./components/Menu";
+import Menu from "./components/menu/Menu";
 
 const Home: React.FC = () => {
   const [slots, setSlots] = useState<IGraph[]>([]);

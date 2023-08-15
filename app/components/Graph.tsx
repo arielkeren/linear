@@ -3,9 +3,18 @@ interface Props {
   color: string;
   thickness: number;
   deepness: number;
+  dragXOffset: number;
+  dragYOffset: number;
 }
 
-const Graph: React.FC<Props> = ({ equation, color, thickness, deepness }) => {
+const Graph: React.FC<Props> = ({
+  equation,
+  color,
+  thickness,
+  deepness,
+  dragXOffset,
+  dragYOffset,
+}) => {
   const isAlphabetical = (character: string) =>
     character.toLowerCase() !== character.toUpperCase();
 
@@ -175,7 +184,7 @@ const Graph: React.FC<Props> = ({ equation, color, thickness, deepness }) => {
         height: thickness,
         backgroundColor: color,
         zIndex: deepness,
-        transform: `translate(-128px, calc(50vh + ${totalOffset}px)) rotate(${radiansToRotate}rad) scaleX(99)`,
+        transform: `translate(calc(-128px + ${dragXOffset}px), calc(50vh + ${totalOffset}px + ${dragYOffset}px)) rotate(${radiansToRotate}rad) scaleX(99)`,
       }}
     ></div>
   );

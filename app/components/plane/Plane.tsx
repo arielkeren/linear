@@ -12,6 +12,7 @@ const Plane: React.FC<Props> = ({ slots }) => {
   const [isMousePressed, setIsMousePressed] = useState(false);
   const [dragXOffset, setDragXOffset] = useState(0);
   const [dragYOffset, setDragYOffset] = useState(0);
+  const [scalar, setScalar] = useState(30);
 
   const onEnter = () => setIsMouseInside(true);
   const onLeave = () => setIsMouseInside(false);
@@ -60,6 +61,16 @@ const Plane: React.FC<Props> = ({ slots }) => {
     }
   };
 
+  const updateScalar = (event: React.WheelEvent<HTMLDivElement>) => {
+    const SCROLL_INTENSITY = 85;
+    const scrollScalar = event.deltaY / SCROLL_INTENSITY;
+    setScalar((previousScalar) =>
+      event.deltaY > 0
+        ? previousScalar / scrollScalar
+        : -previousScalar * scrollScalar
+    );
+  };
+
   return (
     <>
       <div
@@ -71,6 +82,7 @@ const Plane: React.FC<Props> = ({ slots }) => {
         onMouseDown={onPress}
         onMouseUp={onRelease}
         onMouseMove={onMove}
+        onWheel={updateScalar}
       >
         {slots.map(
           (slot, index) =>
@@ -82,6 +94,7 @@ const Plane: React.FC<Props> = ({ slots }) => {
                 deepness={9 - index}
                 dragXOffset={dragXOffset}
                 dragYOffset={dragYOffset}
+                scalar={scalar}
                 key={index}
               />
             )
@@ -91,17 +104,19 @@ const Plane: React.FC<Props> = ({ slots }) => {
           equation="y=0"
           color="#111827"
           thickness={5}
+          deepness={-1}
           dragXOffset={dragXOffset}
           dragYOffset={dragYOffset}
-          deepness={-1}
+          scalar={scalar}
         />
         <Graph
           equation="y=9999x"
           color="#111827"
           thickness={5}
+          deepness={-1}
           dragXOffset={dragXOffset}
           dragYOffset={dragYOffset}
-          deepness={-1}
+          scalar={scalar}
         />
       </div>
 

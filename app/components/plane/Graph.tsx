@@ -5,6 +5,7 @@ interface Props {
   deepness: number;
   dragXOffset: number;
   dragYOffset: number;
+  scalar: number;
 }
 
 const Graph: React.FC<Props> = ({
@@ -14,6 +15,7 @@ const Graph: React.FC<Props> = ({
   deepness,
   dragXOffset,
   dragYOffset,
+  scalar,
 }) => {
   const isAlphabetical = (character: string) =>
     character.toLowerCase() !== character.toUpperCase();
@@ -129,8 +131,6 @@ const Graph: React.FC<Props> = ({
 
   if (!isValid()) return <></>;
 
-  const SCALAR = 20;
-
   let expression = equation.replaceAll(" ", "").toLowerCase();
 
   if (expression[1] === "(") expression = expression.substring(5);
@@ -175,7 +175,7 @@ const Graph: React.FC<Props> = ({
   const angleWithXAxis = Math.atan(slope);
   const radiansToRotate =
     angleWithXAxis >= 0 ? -angleWithXAxis : 2 * Math.PI - angleWithXAxis;
-  const yIntersectionOffset = -yIntersection * SCALAR;
+  const yIntersectionOffset = -yIntersection * scalar;
   const heightOffset = -thickness / 2;
   const totalOffset = yIntersectionOffset + heightOffset;
 

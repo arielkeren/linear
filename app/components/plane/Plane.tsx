@@ -64,7 +64,6 @@ const Plane: React.FC<Props> = ({ slots }) => {
 
   const updateScalar = (event: React.WheelEvent<HTMLDivElement>) => {
     const scrollScalar = event.deltaY / SCROLL_INTENSITY;
-    console.log(scrollScalar);
     setScalar((previousScalar) =>
       event.deltaY > 0
         ? previousScalar / scrollScalar

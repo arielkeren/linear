@@ -4,9 +4,10 @@ import { IconType } from "react-icons";
 interface Props {
   buttonFunction: () => void;
   icon: IconType;
+  isHoldable: boolean;
 }
 
-const HomeButton: React.FC<Props> = ({ buttonFunction, icon }) => {
+const HomeButton: React.FC<Props> = ({ buttonFunction, icon, isHoldable }) => {
   const holdInterval = useRef<NodeJS.Timer | null>(null);
 
   const startHold = () => {
@@ -22,9 +23,10 @@ const HomeButton: React.FC<Props> = ({ buttonFunction, icon }) => {
 
   return (
     <button
-      onMouseDown={startHold}
-      onMouseUp={stopHold}
-      onMouseOut={stopHold}
+      onMouseDown={isHoldable ? startHold : undefined}
+      onMouseUp={isHoldable ? stopHold : undefined}
+      onMouseOut={isHoldable ? stopHold : undefined}
+      onClick={!isHoldable ? buttonFunction : undefined}
       className="text-gray-200 bg-gray-800 text-lg h-7 w-7 rounded flex justify-center items-center"
     >
       {icon({})}

@@ -46,8 +46,10 @@ const Slot: React.FC<Props> = ({
       e[2] === "x" &&
       e[3] === ")" &&
       e[4] === "="
-    )
+    ) {
+      if (e[0] === "x") return false;
       e = e.substring(5);
+    }
 
     if (e.length === 0) return false;
 

@@ -32,8 +32,10 @@ const Graph: React.FC<Props> = ({
       e[2] === "x" &&
       e[3] === ")" &&
       e[4] === "="
-    )
+    ) {
+      if (e[0] === "x") return false;
       e = e.substring(5);
+    }
 
     if (e.length === 0) return false;
 
@@ -127,12 +129,12 @@ const Graph: React.FC<Props> = ({
 
   if (!isValid()) return <></>;
 
-  const SCALAR = 50;
+  const SCALAR = 20;
 
   let expression = equation.replaceAll(" ", "").toLowerCase();
 
-  if (expression[0] === "y") expression = expression.substring(2);
-  else if (expression[1] === "(") expression = expression.substring(5);
+  if (expression[1] === "(") expression = expression.substring(5);
+  else if (expression[0] === "y") expression = expression.substring(2);
 
   let slope = 0;
   let yIntersection = 0;

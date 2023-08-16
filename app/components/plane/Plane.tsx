@@ -8,6 +8,9 @@ interface Props {
 }
 
 const Plane: React.FC<Props> = ({ slots }) => {
+  const MOVE_INTENSITY = 7;
+  const SCROLL_INTENSITY = 85;
+
   const [isMouseInside, setIsMouseInside] = useState(false);
   const [isMousePressed, setIsMousePressed] = useState(false);
   const [dragXOffset, setDragXOffset] = useState(0);
@@ -35,8 +38,6 @@ const Plane: React.FC<Props> = ({ slots }) => {
   };
 
   const movePlane = (direction: "up" | "down" | "right" | "left") => {
-    const MOVE_INTENSITY = 7;
-
     switch (direction) {
       case "up":
         setDragYOffset(
@@ -62,14 +63,18 @@ const Plane: React.FC<Props> = ({ slots }) => {
   };
 
   const updateScalar = (event: React.WheelEvent<HTMLDivElement>) => {
-    const SCROLL_INTENSITY = 85;
     const scrollScalar = event.deltaY / SCROLL_INTENSITY;
+    console.log(scrollScalar);
     setScalar((previousScalar) =>
       event.deltaY > 0
         ? previousScalar / scrollScalar
         : -previousScalar * scrollScalar
     );
   };
+
+  const resetZoom = () => setScalar(30);
+  const zoomIn = () => setScalar((previousScalar) => previousScalar * 1.02);
+  const zoomOut = () => setScalar((previousScalar) => previousScalar / 1.02);
 
   return (
     <>
@@ -120,7 +125,13 @@ const Plane: React.FC<Props> = ({ slots }) => {
         />
       </div>
 
-      <Controls resetDragOffset={resetDragOffset} movePlane={movePlane} />
+      <Controls
+        resetDragOffset={resetDragOffset}
+        movePlane={movePlane}
+        resetZoom={resetZoom}
+        zoomIn={zoomIn}
+        zoomOut={zoomOut}
+      />
     </>
   );
 };

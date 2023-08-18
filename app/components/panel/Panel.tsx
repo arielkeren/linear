@@ -21,7 +21,7 @@ const Panel: React.FC<Props> = ({
   openMenu,
 }) => {
   return (
-    <div className="h-screen w-64 bg-gray-900 flex flex-col items-center gap-6 z-10">
+    <div className="h-screen w-64 bg-gray-900 flex flex-col items-center gap-6 z-20">
       <Logo />
       <SlotList
         slots={slots}

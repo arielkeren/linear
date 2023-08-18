@@ -1,5 +1,6 @@
 import IGraph from "@/types";
 import Graph from "./Graph";
+import Numbers from "./Numbers";
 import { useState } from "react";
 import Controls from "../controls/Controls";
 
@@ -15,7 +16,7 @@ const Plane: React.FC<Props> = ({ slots }) => {
   const [isMousePressed, setIsMousePressed] = useState(false);
   const [dragXOffset, setDragXOffset] = useState(0);
   const [dragYOffset, setDragYOffset] = useState(0);
-  const [scalar, setScalar] = useState(30);
+  const [scalar, setScalar] = useState(100);
 
   const onEnter = () => setIsMouseInside(true);
   const onLeave = () => setIsMouseInside(false);
@@ -71,7 +72,7 @@ const Plane: React.FC<Props> = ({ slots }) => {
     );
   };
 
-  const resetZoom = () => setScalar(30);
+  const resetZoom = () => setScalar(100);
   const zoomIn = () => setScalar((previousScalar) => previousScalar * 1.02);
   const zoomOut = () => setScalar((previousScalar) => previousScalar / 1.02);
 
@@ -121,6 +122,12 @@ const Plane: React.FC<Props> = ({ slots }) => {
           dragXOffset={dragXOffset}
           dragYOffset={dragYOffset}
           scalar={scalar}
+        />
+
+        <Numbers
+          scalar={scalar}
+          dragXOffset={dragXOffset}
+          dragYOffset={dragYOffset}
         />
       </div>
 

@@ -15,7 +15,7 @@ const ThicknessSlider: React.FC<Props> = ({ thickness, changeThickness }) => {
       step="any"
       value={thickness}
       onChange={changeThisThickness}
-      className="h-1 bg-gray-700 accent-blue-500 rounded-lg appearance-none cursor-pointer w-5/12"
+      className="h-1 bg-gray-700 accent-blue-500 rounded-lg appearance-none cursor-pointer w-5/12 mb-6"
     />
   );
 };

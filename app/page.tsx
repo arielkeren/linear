@@ -93,11 +93,13 @@ const Home: React.FC = () => {
       {openSlotIndex !== null && (
         <Menu
           closeMenu={closeMenu}
+          openSlotIndex={openSlotIndex}
           availableColors={COLORS}
           color={slots[openSlotIndex].color}
           thickness={slots[openSlotIndex].thickness}
           changeColor={changeColor}
           changeThickness={changeThickness}
+          changeSlot={changeSlot}
         />
       )}
     </div>

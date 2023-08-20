@@ -16,7 +16,7 @@ const Plane: React.FC<Props> = ({ slots }) => {
   const [isMousePressed, setIsMousePressed] = useState(false);
   const [dragXOffset, setDragXOffset] = useState(0);
   const [dragYOffset, setDragYOffset] = useState(0);
-  const [scalar, setScalar] = useState(100);
+  const [scalar, setScalar] = useState(200);
 
   const onEnter = () => setIsMouseInside(true);
   const onLeave = () => setIsMouseInside(false);
@@ -72,7 +72,7 @@ const Plane: React.FC<Props> = ({ slots }) => {
     );
   };
 
-  const resetZoom = () => setScalar(100);
+  const resetZoom = () => setScalar(200);
   const zoomIn = () => setScalar((previousScalar) => previousScalar * 1.02);
   const zoomOut = () => setScalar((previousScalar) => previousScalar / 1.02);
 

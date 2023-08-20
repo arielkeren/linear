@@ -10,14 +10,22 @@ const Numbers: React.FC<Props> = ({ scalar, dragXOffset, dragYOffset }) => {
   const numbers = [];
   for (let i = -100; i <= 100; i++) {
     if (i === 0) continue;
-    numbers.push(i / Math.pow(2, Math.floor(Math.log2(scalar) - 6)));
+    numbers.push(i / Math.pow(2, Math.floor(Math.log2(scalar) - 7)));
   }
 
-  const formatNumber = (number: number) => {
-    if ((number > 0.1 && number < 1000) || (number < -0.1 && number > -1000))
-      return Math.round(number * 100) / 100;
-    return Math.round(Math.log10(Math.abs(number)) * 100) / 100;
-  };
+  const shouldNumberBeShortened = (number: number) =>
+    !(
+      (number >= 0.01 && number <= 10000) ||
+      (number <= -0.01 && number >= -10000)
+    );
+
+  const formatNumber = (number: number) => Math.round(number * 1000) / 1000;
+
+  const getCoefficient = (number: number) =>
+    number.toExponential(2).split("e")[0];
+
+  const getExponent = (number: number) =>
+    Number(number.toExponential().split("e")[1]);
 
   return (
     <>
@@ -31,13 +39,12 @@ const Numbers: React.FC<Props> = ({ scalar, dragXOffset, dragYOffset }) => {
               }px), calc(50vh - ${number * scalar - dragYOffset + 7}px))`,
             }}
           >
-            {(number > 0.1 && number < 1000) ||
-            (number < -0.1 && number > -1000) ? (
-              formatNumber(number)
-            ) : (
+            {shouldNumberBeShortened(number) ? (
               <>
-                {number < 0 && "-"}10<sup>{formatNumber(number)}</sup>
+                {getCoefficient(number)} ⋅ 10<sup>{getExponent(number)}</sup>
               </>
+            ) : (
+              formatNumber(number)
             )}
           </span>
 
@@ -49,13 +56,12 @@ const Numbers: React.FC<Props> = ({ scalar, dragXOffset, dragYOffset }) => {
               }px), calc(50vh + ${dragYOffset + 5}px))`,
             }}
           >
-            {(number > 0.1 && number < 1000) ||
-            (number < -0.1 && number > -1000) ? (
-              formatNumber(number)
-            ) : (
+            {shouldNumberBeShortened(number) ? (
               <>
-                {number < 0 && "-"}10<sup>{formatNumber(number)}</sup>
+                {getCoefficient(number)} ⋅ 10<sup>{getExponent(number)}</sup>
               </>
+            ) : (
+              formatNumber(number)
             )}
           </span>
         </Fragment>

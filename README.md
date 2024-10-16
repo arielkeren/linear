@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Linear
 
-## Getting Started
+Web application for graphing linear functions.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Graph linear functions using simple equations in the form of $y=mx+b$.
+- Supports having multiple graphs rendered at once.
+- Toggle the visibility of graphs.
+- Change a graph's color.
+- Modify a graph's line thickness.
+- Calculate the equation of a graph by providing the program with 2 of the following: slope, $y$-intercept, a point, another point.
+- Move around the coordinate plane by dragging on the plane with the mouse, or by pressing and holding the arrow buttons at the top right of the screen.
+- Reset to $(0,0)$ being the center of the screen by pressing the home button.
+- Zoom in and out of the coordinate plane using the mouse wheel, or by pressing and holding the `+` and `-` buttons at the top right of the screen.
+- Reset to the default zoom by pressing the magnifying glass button.
+- Numbers appear uniformly on the $x$-axis and on the $y$-axis depending on the amount of zoom.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How It Works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To graph a linear function, the program uses a long enough `div` and translates it up or down, according to the $y$-intercept of the graph, given by $b$'s value in the general form of $y=mx+b$. After that, all that is left is to fit the line to the slope. This is done by rotating the line by an angle $θ$ given by the formula $θ=arctan(m)$, where $m$ is the slope of the line in the general form of $y=mx+b$.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Instructions
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Clone this repository.
+  ```bash
+  git clone https://github.com/arielkeren/linear.git
+  ```
+- Run the development server.
+  ```bash
+  npm run dev
+  # or
+  yarn dev
+  # or
+  pnpm dev
+  ```
+- Open [http://localhost:3000](http://localhost:3000) on your browser.

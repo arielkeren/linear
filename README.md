@@ -2,9 +2,16 @@
 
 Web application for graphing linear functions.
 
+![Linear](https://github.com/user-attachments/assets/2b01caea-4be8-4e64-8ace-395e1d674b31)
+
 ## Live Demo
 
 Try it here: [https://graphlinear.netlify.app](https://graphlinear.netlify.app)
+
+## Tech Stack
+- Next.js
+- React
+- Tailwind CSS
 
 ## Features
 

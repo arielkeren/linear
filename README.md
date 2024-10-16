@@ -11,6 +11,7 @@ Try it here: [https://graphlinear.netlify.app](https://graphlinear.netlify.app)
 ## Tech Stack
 - Next.js
 - React
+- TypeScript
 - Tailwind CSS
 
 ## Features

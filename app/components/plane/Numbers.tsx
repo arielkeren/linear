@@ -32,7 +32,7 @@ const Numbers: React.FC<Props> = ({ scalar, dragXOffset, dragYOffset }) => {
       {numbers.map((number, index) => (
         <Fragment key={`${number}-${index}`}>
           <span
-            className="text-gray-300 absolute z-10 select-none text-xs"
+            className="text-gray-300 absolute z-10 select-none text-xs font-bold"
             style={{
               transform: `translate(calc(50vw - ${
                 128 - dragXOffset - 7
@@ -49,7 +49,7 @@ const Numbers: React.FC<Props> = ({ scalar, dragXOffset, dragYOffset }) => {
           </span>
 
           <span
-            className="text-gray-300 absolute z-10 select-none text-xs"
+            className="text-gray-300 absolute z-10 select-none text-xs font-bold"
             style={{
               transform: `translate(calc(50vw - ${
                 128 - dragXOffset - number * scalar + (number < 0 ? 10 : 0)

@@ -2,6 +2,10 @@
 
 Web application for graphing linear functions.
 
+## Live Demo
+
+Try it here: [https://graphlinear.netlify.app](https://graphlinear.netlify.app)
+
 ## Features
 
 - Graph linear functions using simple equations in the form of $y=mx+b$.

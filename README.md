@@ -6,7 +6,7 @@ Web application for graphing linear functions.
 
 ## Live Demo
 
-Try it here: [https://graphlinear.netlify.app](https://graphlinear.netlify.app)
+Try it here: [graphlinear.netlify.app](https://graphlinear.netlify.app)
 
 ## Tech Stack
 - Next.js
@@ -38,6 +38,18 @@ To graph a linear function, the program uses a long enough `div` and translates 
   ```bash
   git clone https://github.com/arielkeren/linear.git
   ```
+- Navigate to the project directory.
+  ```bash
+  cd linear
+  ```
+- Install the required Node modules.
+  ```bash
+  npm install
+  # or
+  yarn install
+  # or
+  pnpm install
+  ```
 - Run the development server.
   ```bash
   npm run dev
@@ -46,4 +58,5 @@ To graph a linear function, the program uses a long enough `div` and translates 
   # or
   pnpm dev
   ```
-- Open [http://localhost:3000](http://localhost:3000) on your browser.
+- Open [localhost:3000](http://localhost:3000) on your browser.
+
